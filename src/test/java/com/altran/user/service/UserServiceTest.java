@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import static org.mockito.Mockito.*;
@@ -30,14 +31,30 @@ public class UserServiceTest {
     }
 
     @Test
-    final void testGetUser() {
-        User user = new User(1,"amvabhijith","12345","12345","abhijith","am");
-        when(userRepository.findByUserName(anyString())).thenReturn(user);
-
-        User user1 = userService.getUserDetails("amvabhijith");
-
-        assertNotNull(user1);
-        assertEquals("amvabhijith",user.getUserName());
+    final void testGetUserDetails() {
+    	User user = new User(1, "amvabhijith", "pass123","pass123","abhijith","am");
+    	when(userRepository.findByUserName("amvabhijith")).thenReturn(user);
+    	
+    	User result = userService.getUserDetails("amvabhijith");
+		assertEquals(1, result.getUserId());
+		assertEquals("amvabhijith", result.getUserName());
+		assertEquals("pass123", result.getPassword());
+		assertEquals("pass123", result.getPasswordConfirm());
+		assertEquals("abhijith", result.getFirstName());
+		assertEquals("am", result.getLastName());
     }
 
+    @Test
+    void testRegistration() {
+    	User user = new User(1, "amvabhijith", "pass123","pass123","abhijith","am");
+    	when(userRepository.save(user)).thenReturn(user);
+    	
+    	User result = userService.registration(user);
+		assertEquals(1, result.getUserId());
+		assertEquals("amvabhijith", result.getUserName());
+		assertEquals("pass123", result.getPassword());
+		assertEquals("pass123", result.getPasswordConfirm());
+		assertEquals("abhijith", result.getFirstName());
+		assertEquals("am", result.getLastName());
+    }
 }
