@@ -27,4 +27,5 @@ public class UserController {
     public ResponseEntity<User> getUserDetails(@PathVariable String userName) {
         return ResponseEntity.ok(userService.getUserDetails(userName));
     }
+    
 }
