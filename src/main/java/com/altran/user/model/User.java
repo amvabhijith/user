@@ -7,7 +7,7 @@ import javax.persistence.*;
  * Created by 4013707 on 4/16/2020.
  */
 @Entity
-@Table(name = "user")
+@Table(name = "USER")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -94,10 +94,6 @@ public class User {
 
         if (getUserId() != user.getUserId()) return false;
         if (getUserName() != null ? !getUserName().equals(user.getUserName()) : user.getUserName() != null)
-            return false;
-        if (getPassword() != null ? !getPassword().equals(user.getPassword()) : user.getPassword() != null)
-            return false;
-        if (getPasswordConfirm() != null ? !getPasswordConfirm().equals(user.getPasswordConfirm()) : user.getPasswordConfirm() != null)
             return false;
         if (getFirstName() != null ? !getFirstName().equals(user.getFirstName()) : user.getFirstName() != null)
             return false;

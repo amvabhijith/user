@@ -50,7 +50,7 @@ class UserTest {
 		pojo.setUserId(1);
 
 		//then
-		assertTrue(pojo.getUserId()==1);
+		assertEquals(pojo.getUserId(),1);
 	}
 
 	/**
@@ -65,7 +65,7 @@ class UserTest {
 		pojo.setUserName("amvabhijith");
 
 		//then
-		assertTrue(pojo.getUserName().equals("amvabhijith"));
+		assertEquals(pojo.getUserName(),("amvabhijith"));
 	}
 
 	/**
@@ -79,7 +79,7 @@ class UserTest {
 		pojo.setPassword("amvabhijith");
 
 		//then
-		assertTrue(pojo.getPassword().equals("amvabhijith"));
+		assertEquals(pojo.getPassword(),("amvabhijith"));
 	}
 
 	/**
@@ -93,7 +93,7 @@ class UserTest {
 		pojo.setPasswordConfirm("amvabhijith");
 
 		//then
-		assertTrue(pojo.getPasswordConfirm().equals("amvabhijith"));
+		assertEquals(pojo.getPasswordConfirm(),("amvabhijith"));
 	}
 
 	/**
@@ -107,7 +107,7 @@ class UserTest {
 		pojo.setFirstName("amvabhijith");
 
 		//then
-		assertTrue(pojo.getFirstName().equals("amvabhijith"));
+		assertEquals(pojo.getFirstName(),("amvabhijith"));
 	}
 
 	/**
@@ -121,7 +121,7 @@ class UserTest {
 		pojo.setLastName("amvabhijith");
 
 		//then
-		assertTrue(pojo.getLastName().equals("amvabhijith"));
+		assertEquals(pojo.getLastName(),("amvabhijith"));
 	}
 
 	/**
@@ -136,7 +136,7 @@ class UserTest {
 		pojo.setUserId(1);
 
 		//then
-		assertTrue(pojo.getUserId()==1);
+		assertEquals(pojo.getUserId(),1);
 	}
 
 	/**
@@ -155,7 +155,7 @@ class UserTest {
 		pojo.setUserName("amvabhijith");
 
 		//then
-		assertTrue(pojo.getUserName().equals("amvabhijith"));
+		assertEquals(pojo.getUserName(),("amvabhijith"));
 	}
 
 	/**
@@ -169,7 +169,7 @@ class UserTest {
 		pojo.setPassword("amvabhijith");
 
 		//then
-		assertTrue(pojo.getPassword().equals("amvabhijith"));
+		assertEquals(pojo.getPassword(),("amvabhijith"));
 	}
 
 	/**
@@ -183,7 +183,7 @@ class UserTest {
 		pojo.setPasswordConfirm("amvabhijith");
 
 		//then
-		assertTrue(pojo.getPasswordConfirm().equals("amvabhijith"));
+		assertEquals(pojo.getPasswordConfirm(),("amvabhijith"));
 	}
 
 	/**
@@ -197,7 +197,7 @@ class UserTest {
 		pojo.setFirstName("amvabhijith");
 
 		//then
-		assertTrue(pojo.getFirstName().equals("amvabhijith"));
+		assertEquals(pojo.getFirstName(),("amvabhijith"));
 	}
 
 	/**
@@ -211,7 +211,7 @@ class UserTest {
 		pojo.setLastName("amvabhijith");
 
 		//then
-		assertTrue(pojo.getLastName().equals("amvabhijith"));
+		assertEquals(pojo.getLastName(),("amvabhijith"));
 	}
 
 	/**
@@ -221,8 +221,11 @@ class UserTest {
 	void testEqualsObject() {
 		User user1 = new User(1, "amvabhijith", "pass123","pass123","abhijith","am");
 		User user2 = new User(1, "amvabhijith", "pass123","pass123","abhijith","am");
-		assertEquals(user1, user2);
-		assertTrue( user1.hashCode()==user2.hashCode() );
+		assertEquals(user1.getUserName(),user2.getUserName());
+		assertFalse(!user1.getFirstName().equals(user2.getFirstName()));
+		assertTrue(user1.getLastName().equals(user2.getLastName()));
+		assertTrue(user1.equals(user2));
+		assertEquals( user1.hashCode(),user2.hashCode() );
 	}
 
 }
